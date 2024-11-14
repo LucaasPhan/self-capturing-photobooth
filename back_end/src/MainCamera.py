@@ -65,7 +65,7 @@ class PythonCamera:
         sound_thread = threading.Thread(target=sound_manager)
         sound_thread.daemon = True
         sound_thread.start()
-        
+        firstInteration = True
         while (self.counterScreenShot < self.numScreenShot):
             key = cv.waitKey(10)
             if key == 27:  # ESC
@@ -83,13 +83,20 @@ class PythonCamera:
             image = cv.cvtColor(image, cv.COLOR_BGR2RGB)
             image.flags.writeable = False
 
+         
+            
             if self.vteam_flag:
+                if firstInteration:
+                    self.start_time = time.time()
+                    self.end_time = self.start_time + self.duration
+                    firstInteration = False
                 remaining_time = self.end_time - time.time()
                 if remaining_time >= 0:
+                    
                     countdown_text = "{:.1f}".format(remaining_time)
                     # Calculate progress (0 to 1) based on remaining time
                     progress = 1 - (remaining_time / self.duration)
-                    self.draw_countdown(debug_image, countdown_text, progress)  # Draw countdown circle and text
+                    self.draw_countdown(debug_image, countdown_text)  # Draw countdown circle and text
                 else:
                     overlay = np.ones_like(image) * 255  # White overlay (all pixels set to white)
                     # alpha values increase in each frame
@@ -152,7 +159,7 @@ class PythonCamera:
         while pygame.mixer.music.get_busy():
             pass
 
-    def draw_countdown(self, frame, text, progress):
+    def draw_countdown(self, frame, text):
         font = cv.FONT_HERSHEY_SIMPLEX
         text_size = cv.getTextSize(text, font, 3, 2)[0]
         text_size2 = cv.getTextSize(text, font, 3, 8)[0]
