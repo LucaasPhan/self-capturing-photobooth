@@ -107,7 +107,8 @@ body {
     font-size: 18px;
     padding: 20px 40px;
     /* height: 40px; */
-    background-color: #D9D9D9;
+    background-color: #8DE4B1;
+    border: 2px solid black;
     display: flex;
     justify-content: center;
     align-items: center;

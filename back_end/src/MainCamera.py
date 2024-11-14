@@ -10,7 +10,6 @@ import numpy as np
 from queue import Queue
 import pygame
 import threading
-import os
 
 import time
 
@@ -38,7 +37,7 @@ class PythonCamera:
         self.start_time = 0 
         self.end_time = 0 
 
-        # Varibale for screen-shot 
+        # Variable for screen-shot 
         self.max_alpha = 0.6 # max opacity 
         self.max_thickness = 50 # max border thickness (black frame)
         self.current_alpha = 0 
