@@ -92,4 +92,4 @@ typings/
 out/
 
 #img folder
-./src/images/
+./src/images/*.jpg
