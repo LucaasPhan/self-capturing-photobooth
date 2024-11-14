@@ -10,7 +10,7 @@ import numpy as np
 from queue import Queue
 import pygame
 import threading
-
+import os
 
 import time
 
@@ -20,7 +20,7 @@ class PythonCamera:
     def __init__(self, device, flag):
         self.device = device 
 
-        self.audio_files = "y2mate.com - Camera Shutter Sound Effect.mp3"
+        self.audio_files = "back_end/src/y2mate.com - Camera Shutter Sound Effect.mp3"
         # Set global variables
         self.numScreenShot = 4
         self.captured = False 
@@ -82,7 +82,7 @@ class PythonCamera:
             debug_image = copy.deepcopy(image)
 
             image = cv.cvtColor(image, cv.COLOR_BGR2RGB)
-            # image.flags.writeable = False
+            image.flags.writeable = False
 
             if self.vteam_flag:
                 remaining_time = self.end_time - time.time()
@@ -131,8 +131,9 @@ class PythonCamera:
                             self.captured = False
                             self.start_time = time.time()
                             self.end_time = self.start_time + self.duration
-            if self.write_captured_image: 
-                cv.imwrite(f"../../front_end/src/images/{self.counterScreenShot-1}.jpg", self.captured_image)
+            if self.write_captured_image:
+                cv.imwrite(f"front_end/src/images/{self.counterScreenShot-1}.jpg", self.captured_image)
+                print("Exported images")
                 self.write_captured_image = False
             
             yield debug_image

@@ -6,8 +6,7 @@ const videoStream = document.getElementById('videoStream')
 const clickme = document.getElementById('clickme')
 
 const io = require('socket.io-client')
-const socket = io('http://127.0.0.1:5000')
-
+const socket = io('http://127.0.0.1:5000')  
 
 socket.on('connect', () => {
     console.log('Connected to Flask Socket.IO server');

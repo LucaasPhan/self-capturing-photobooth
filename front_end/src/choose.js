@@ -17,18 +17,6 @@ shootedContainer.innerHTML =
         <div data-selected="false">
             <img src="./images/3.jpg">
         </div>
-        <div data-selected="false">
-            <img src="./images/4.jpg" onerror="this.style.display='none'">
-        </div>
-        <div data-selected="false">
-            <img src="./images/5.jpg" onerror="this.style.display='none'">
-        </div>
-        <div data-selected="false">
-            <img src="./images/6.jpg" onerror="this.style.display='none'">
-        </div>
-        <div data-selected="false">
-            <img src="./images/7.jpg" onerror="this.style.display='none'">
-        </div>
     `
 
 const items = shootedContainer.getElementsByTagName("div");

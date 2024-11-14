@@ -92,7 +92,7 @@ def capture():
 # @app.route('/video/heart')
 # def video3():
 #     return Response(generate_frames("heart"), mimetype='multipart/x-mixed-replace; boundary=frame')
-
+    
 
 if __name__ == "__main__":
     socketio.run(app, debug=True)
